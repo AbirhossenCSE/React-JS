@@ -1,11 +1,12 @@
 
 import './App.css'
+import Daisynav from './components/Daisynav/Daisynav'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-7xl'>Vite + React</h1>
+      <Daisynav></Daisynav>
       
     </>
   )
