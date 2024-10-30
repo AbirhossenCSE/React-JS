@@ -8,6 +8,7 @@ const PriceOptioon = ({option}) => {
                 <span className="text-6xl">{price}</span>
                 <span className="text-3xl">/Month</span>
             </h3>
+            <h4 className="text-4xl">{name}</h4>
         </div>
     );
 };
