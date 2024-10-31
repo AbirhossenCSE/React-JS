@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 const Phones = () => {
     const [phones, setPhones] = useState([]);
@@ -22,10 +22,9 @@ const Phones = () => {
             })
             console.log(phoneWithFakeData);
             setPhones(phoneWithFakeData);
-        });
-        
-        
+        });       
     }, [])
+
     return (
         <div>
             <h2 className="text-5xl">Phones: {phones.length}</h2>
