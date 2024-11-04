@@ -4,10 +4,17 @@ const StatefulForm = () => {
     const [name, setName] = useState(null);
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
+    const [error, setError] = useState('');
 
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log(name, email, password);
+        if (password.length < 6) {
+            setError('Password Aro de');
+        }
+        else{
+            setError('');
+            console.log(name, email, password);
+        }
 
     }
     const handleNameChange = e =>{
@@ -36,7 +43,10 @@ const StatefulForm = () => {
                     onChange={handlePasswordChange}
                  type="password" name="password" />
                 <br />
-                <input type="submit" value='Submit' />
+                <input type="submit" value='Submit' required />
+                {
+                    error && <p>{error}</p>
+                }
             </form>
         </div>
     );
