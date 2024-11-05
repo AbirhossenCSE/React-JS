@@ -4,19 +4,19 @@ import './App.css'
 // import RefForm from './components/RefForm/RefForm'
 // import SimpleForm from './components/SimpleForm/SimpleForm'
 // import StatefulForm from './components/StatefulForm/StatefulForm'
-import ReuseableForm from './components/ReuseableForm/ReuseableForm'
+// import ReuseableForm from './components/ReuseableForm/ReuseableForm'
 
 function App() {
 
-  // Reusable form
-    const handleSignUpSubmit = data =>{
-        console.log('Sign-Up', data);
+  // // Reusable form
+  //   const handleSignUpSubmit = data =>{
+  //       console.log('Sign-Up', data);
         
-    }
-    const handleProfileUpdateSubmit = data =>{
-        console.log('Update Profile', data);
+  //   }
+  //   const handleProfileUpdateSubmit = data =>{
+  //       console.log('Update Profile', data);
         
-    }
+  //   }
 
   return (
     <>
@@ -27,19 +27,18 @@ function App() {
       {/* <RefForm></RefForm> */}
       {/* <HookForm></HookForm> */}
 
-      {/* Reusable form */}
-      <ReuseableForm fromTitle={'Sign-Up'} handleSubmit={handleSignUpSubmit}>
+      {/* <ReuseableForm fromTitle={'Sign-Up'} handleSubmit={handleSignUpSubmit}>
         <div>
           <h2>Sign Up</h2>
           <p>Please sign up here</p>
         </div>
       </ReuseableForm>
-      
+
       <ReuseableForm fromTitle={'Profile Update'} handleSubmit={handleProfileUpdateSubmit} submitBtnText={'Update'}>
         <div>
           <h2>Update profile</h2>
         </div>
-      </ReuseableForm>
+      </ReuseableForm> */}
    
     </>
   )
