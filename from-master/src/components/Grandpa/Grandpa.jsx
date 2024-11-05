@@ -1,8 +1,17 @@
+import Aunty from "../Aunty/Aunty";
+import Dad from "../Dad/Dad";
+import Uncle from "../Uncle/Uncle";
+import './Grndpa.css'
 
 const Grandpa = () => {
     return (
-        <div>
-            
+        <div className="grandpa">
+            <h2>Grandpa</h2>
+           <section className="flex">
+            <Dad></Dad>
+            <Uncle></Uncle>
+            <Aunty></Aunty>
+           </section>
         </div>
     );
 };
