@@ -13,6 +13,9 @@ import Dashboard from './component/Dashboard/Dashboard';
 import BookDetail from './component/BookDetail/BookDetail';
 import ListedBooks from './component/ListedBooks/ListedBooks';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,5 +47,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>,
 )
