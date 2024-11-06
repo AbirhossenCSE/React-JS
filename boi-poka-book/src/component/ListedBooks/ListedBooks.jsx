@@ -7,6 +7,7 @@ import Book from '../Book/Book';
 
 const ListedBooks = () => {
     const [readList, setReadList] = useState([]);
+    const [sort, setSort] = useState('');
     const allBooks = useLoaderData();
 
     useEffect(() =>{
@@ -20,9 +21,35 @@ const ListedBooks = () => {
         setReadList(readBookList);
     }, [])
 
+    const handleSort = sortType =>{
+        setSort(sortType);
+
+        if (sortType === 'number of pages') {
+            const sortedReadList = [...readList].sort((a, b) => a.totalPages - b.totalPages);
+            setReadList(sortedReadList)
+        }
+        if (sortType === 'rating') {
+            const sortedReadList = [...readList].sort((a, b) => a.rating - b.rating);
+            setReadList(sortedReadList)
+        }
+    }
+
     return (
         <div>
             <h2 className='text-3xl ml-3'>Listed Books</h2>
+
+            <div className="dropdown">
+                <div tabIndex={0} role="button" className="btn m-1">
+                    {
+                        sort ? `Sort by: ${sort}` : 'Sort By'
+                    }
+
+                </div>
+                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li onClick={()=> handleSort('rating')}><a>Ratting</a></li>
+                    <li onClick={()=> handleSort('number of pages')}><a>Number of page</a></li>
+                </ul>
+            </div>
 
             <Tabs>
                 <TabList>
