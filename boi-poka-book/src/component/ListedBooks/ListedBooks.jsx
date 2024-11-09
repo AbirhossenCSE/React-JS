@@ -10,6 +10,7 @@ const ListedBooks = () => {
     const [sort, setSort] = useState('');
     const allBooks = useLoaderData();
 
+    // Load data
     useEffect(() =>{
         const storedReadList = getStoreReadList();
         const storedReadListInt = storedReadList.map(id => parseInt(id));
