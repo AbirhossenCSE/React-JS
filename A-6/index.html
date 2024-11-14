@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <!-- DAisy UI -->   
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body class="font-lato">
+    <header>
+        <nav class="w-10/12 mx-auto py-3 flex justify-between border-b">
+            <div class="logo w-32 py-3 flex gap-3">
+                <img src="./images/logo.webp" alt="">
+                <h2 class="font-bold">Peddy</h2>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                <li><a>Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="w-10 h-10">
+                <img class="w-full border p-2 border-black rounded-full" src="https://img.icons8.com/?size=80&id=111473&format=png" alt="">
+            </div>
+        </nav>
+
+        <section>
+            <div class="flex flex-col gap-5 justify-center items-center p-8">
+                <h3 class="font-bold">Bringing Families Together ❤️‍🔥</h3>
+                <h1 class="text-3xl font-bold text-center py-2">Your Path to Adoption <br>Starts Here</h1>
+                <p class="text-center items-center px-10">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <button class="btn  bg-[#0E7A81] text-white">View more</button>
+            </div>
+            <div class="flex justify-center p-8">
+                <img src="./images/pet.webp" alt="">
+            </div>
+
+            <div class="flex flex-col gap-5 justify-center items-center p-8">
+                <h3 class="text-2xl font-bold py-2 items-center">Adopt  Your  Best Friend</h3>
+                <p class="p-10 text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+        </section>
+    </header>
+
+    <section class="w-9/12 mx-auto p-10">
+        <div id="categories" class="py-3 lg:flex justify-between"></div>
+    </section>
+    <!-- best deal and sort -->
+    <section class="w-11/12 mx-auto p-10 flex justify-between">
+        <div class="ml-6">
+            <h2>Best Deal For You</h2>
+        </div>
+        <div class="mr-6">
+            <button id="sort-btn" class="btn bg-[#0E7A81] text-white">Sort By Price</button>
+        </div>
+    </section>
+
+    <!-- main sec -->
+    <main class="w-11/12 mx-auto lg:grid lg:grid-cols-4 gap-5 py-10">
+        
+        <div class="col-span-3 ml-4 px-2">
+            <section id="pets" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10"></section>
+        </div>
+         
+        <div id="liked-pets" class="col-span-1 border">
+            <div id="liked-button" class="rounded-xl w-full border grid grid-cols-2 gap-2 p-2 ">
+
+            </div>
+        </div>
+        
+    </main>
+    <!-- Open the modal using ID.showModal() method -->
+    <button id="showModalData" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+    <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <div id="modal-content">
+
+        </div>
+        <div class="modal-action">
+        <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Cancel</button>
+        </form>
+        </div>
+    </div>
+    </dialog>
+
+    <!-- adopt modal -->
+
+    <label for="my_modal_6" class="btn hidden" onclick="openModal()">Open Modal</label>
+
+    <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+    <div class="modal" role="dialog">
+    <div class="modal-box">
+        <h3 class="flex justify-center items-center mb-2"><img src="https://img.icons8.com/?size=100&id=q6BlPrJZmxHV&format=png&color=000000" alt=""></h3>
+        <h3 class="text-2xl text-center font-bold mb-2">Congratulations</h3>
+        <p class="text-center font-bold">Adoption Process is started for you</p>
+        <p id="countdownText" class="text-3xl font-bold text-center mt-4"> 3</p>
+        
+    </div>
+    </div>
+
+
+    <!-- load Spinner -->
+    <div id="loading-spinner" class="hidden flex justify-center items-center min-h-[300px]">
+        <span class="loading loading-bars loading-lg"></span>
+    </div>
+    
+
+
+    <footer class="bg-black">
+        <div class="footer w-11/12 text-white mx-auto lg:flex justify-between text-base-content p-10">
+            <!-- Nav -->
+            <nav>
+                <div class="logo w-32 py-3 flex gap-3">
+                    <img src="./images/logo.webp" alt="">
+                    <h2 class="font-bold">Peddy</h2>
+                </div>
+                <div>
+                    <p class="py-1">Location: av. Washington 165, NY CA </p>
+                    <p class="py-1">54003</p>
+                    <p class="py-1"> Phone: +31 85 964 47 25</p>
+                    <p class="py-1"> Email: info@yourdomain.com</p>
+                    <p class="py-1"> Openings hours: 9.00 AM - 5.00 PM</p>
+                </div>
+                <div class="grid grid-flow-col gap-4">
+                  <a>
+                    <img src="https://img.icons8.com/?size=40&id=118497&format=png" alt="">
+                  </a>
+                  <a>
+                    <img class="bg-white" src="https://img.icons8.com/?size=36&id=YfCbGWCWcuar&format=png&color=000000" alt="">
+                  </a>
+                  <a>
+                    <img src="https://img.icons8.com/?size=40&id=9a46bTk3awwI&format=png&color=000000" alt="">
+                  </a>
+                  <a>
+                    <img src="https://img.icons8.com/?size=40&id=Xy10Jcu1L2Su&format=png&color=000000" alt="">
+                  </a>
+                </div>
+              </nav>
+            <!-- Nav -->
+            <nav>
+              <h6 class="footer-title">Useful Links</h6>
+              <a class="link link-hover">Home</a>
+              <a class="link link-hover">About Us</a>
+              <a class="link link-hover">Animals</a>
+              <a class="link link-hover">Foundation</a>
+              <a class="link link-hover">Contact</a>
+            </nav>
+            <form>
+              <h6 class="footer-title">Newsletter</h6>
+              <fieldset class="form-control w-80 ">
+                <input
+                type="text"
+                placeholder="Enter your email address"
+                class="input bg-black text-white input-bordered input-primary w-full max-w-xs my-2" />
+                <button class="btn bg-[#0E7A81]">Subscribe</button>
+              </fieldset>
+            </form>
+        </div>
+    </footer>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
